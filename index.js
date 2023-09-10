@@ -17,10 +17,9 @@ app.use(cors({
 app.use("/api",router)
 
 
-app.use(express.static("public"));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+app.get("/users",(req,res)=>{
+  return res.send("HELLO WORLD")
+})
 
 
 await connectDB(process.env.MONGO_URI)
